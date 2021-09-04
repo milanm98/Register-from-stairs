@@ -5,14 +5,11 @@ import BackgroundPic from "./assets/backgroundStairs.mp4";
 function App() {
 
   const playVideo = useRef(null);
-
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  
   const [countUsernameChars, setCountUsernameChars] = useState(0);
   const [countPasswordChars, setCountPasswordChars] = useState(0);
 
   const handleUsername = (e) => {
-    setUsername(e.target.value);
     if(e.target.value !== "" & countUsernameChars === 0){
       play();
       setCountUsernameChars(1);
@@ -25,7 +22,6 @@ function App() {
   }
 
   const handlePassword = (e) => {
-    setPassword(e.target.value);
     if(e.target.value !== "" & countPasswordChars === 0){
       play();
       setCountPasswordChars(1);
