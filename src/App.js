@@ -19,7 +19,8 @@ function App() {
     }
     else if(e.target.value === "" & countUsernameChars !== 0) {
       setCountUsernameChars(0);
-      playVideo.current.currentTime = 0;
+      playVideo.current.currentTime -= 0.70;
+      
     }
   }
 
@@ -31,7 +32,7 @@ function App() {
     }
     else if(e.target.value === "" & countPasswordChars !== 0) {
       setCountPasswordChars(0);
-      playVideo.current.currentTime = 0;
+      playVideo.current.currentTime -= 0.70;
     }
   }
 
