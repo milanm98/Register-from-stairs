@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import {  useRef, useState } from 'react';
 import './App.css';
 import BackgroundPic from "./assets/backgroundStairs.mp4";
 
@@ -8,17 +8,38 @@ function App() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [countUsernameChars, setCountUsernameChars] = useState(0);
+  const [countPasswordChars, setCountPasswordChars] = useState(0);
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
+    if(e.target.value !== "" & countUsernameChars === 0){
+      play();
+      setCountUsernameChars(1);
+    }
+    else if(e.target.value === "" & countUsernameChars !== 0) {
+      setCountUsernameChars(0);
+      playVideo.current.currentTime = 0;
+    }
   }
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
+    if(e.target.value !== "" & countPasswordChars === 0){
+      play();
+      setCountPasswordChars(1);
+    }
+    else if(e.target.value === "" & countPasswordChars !== 0) {
+      setCountPasswordChars(0);
+      playVideo.current.currentTime = 0;
+    }
   }
 
   const handleSubmit = () => {
     playVideo.current.play();
+    setTimeout(() => {
+      window.location.replace("http://localhost:3000");
+    },700)
   }
 
   const play = () => {
@@ -27,17 +48,6 @@ function App() {
       playVideo.current.pause();
     },700)
   }
-
-  useEffect(() => {
-    if(username !== ""){
-      play();
-    }
-
-    if(password !== ""){
-      play();
-    }
-
-  },[username, password])
 
   return (
     <main>
