@@ -35,7 +35,7 @@ function App() {
   const handleSubmit = () => {
     playVideo.current.play();
     setTimeout(() => {
-      window.location.replace("http://localhost:3000");
+      alert("Successfully logged in ! ");
     },700)
   }
 
